@@ -4,13 +4,14 @@
   "description": "SparX Apollo/Express Server",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npm ci && npm run prisma:generate && tsc",
+    "build": "npm ci && tsc",
     "dev": "npm run build && npx nodemon src/index.ts",
     "lint": "eslint --ext .ts .",
     "lint:fix": "eslint --fix --ext .ts .",
     "prisma:generate": "npx prisma generate --schema=./src/schema.prisma",
     "prestart": "npm run build",
     "prepare": "husky install",
+    "postinstall": "npm run prisma:generate",
     "start": "node .",
     "test": "jest --no-cache --silent --passWithNoTests --collectCoverage --testPathPattern=tests/units"
   },
