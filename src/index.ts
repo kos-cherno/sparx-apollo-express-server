@@ -9,7 +9,9 @@ import { typeDefs } from './graphql/typeDefinitions'
 import { prisma } from './lib'
 import { PORT, DATABASE } from './common/config'
 
-const server = new ApolloServer({ typeDefs, resolvers, context: { prisma } })
+// added only as a temporary solution for demo purposes so as to enable Apollo sandbox in production
+const playgroundProps = { introspection: true, playground: true }
+const server = new ApolloServer({ typeDefs, resolvers, context: { prisma }, ...playgroundProps })
 const app = express()
 
 server
