@@ -2,7 +2,6 @@
 import 'dotenv/config'
 import express from 'express'
 import { ApolloServer } from 'apollo-server-express'
-import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core'
 
 import { resolvers } from './graphql/resolvers'
 import { dbConnectionMW } from './middlewares'
@@ -10,8 +9,7 @@ import { typeDefs } from './graphql/typeDefinitions'
 import { prisma } from './lib'
 import { PORT, DATABASE } from './common/config'
 
-const plugins = [ApolloServerPluginLandingPageGraphQLPlayground()]
-const server = new ApolloServer({ typeDefs, resolvers, context: { prisma }, plugins })
+const server = new ApolloServer({ typeDefs, resolvers, context: { prisma } })
 const app = express()
 
 server
