@@ -1,1 +1,1 @@
-export const CoachInputs = ``
+export const CoachInputs = ''
