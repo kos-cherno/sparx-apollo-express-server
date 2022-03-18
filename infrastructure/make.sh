@@ -1,3 +1,2 @@
-sqlite3 ../index.db < ./db/scaffoldDB.sql
-cat ./db/dump.sql | sqlite3 ../index.db
-npx prisma generate --schema=./src/db/schemas/schema.prisma
+sqlite3 ./src/index.db < ./infrastructure/db/scaffoldDB.sql
+cat ./infrastructure/db/dump.sql | sqlite3 ./src/index.db
